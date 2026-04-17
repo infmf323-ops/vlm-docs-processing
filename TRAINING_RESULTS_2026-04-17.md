@@ -74,7 +74,10 @@ Validation loss improved from `1.2529` to `0.7833`.
 
 ## Out-of-the-Box vs Fine-Tuned
 
-Comparison was run on `5` validation samples.
+Two comparisons were run:
+
+- a quick qualitative comparison on `5` validation samples;
+- a full field-level evaluation on the whole validation split (`49` valid documents).
 
 Base model:
 
@@ -85,6 +88,45 @@ Fine-tuned model:
 - `E:\thesis\outputs\Bennet1996_donut-small_ft_best`
 
 ### Summary
+
+- Full validation-set comparison confirms the fine-tuned model is much better than the base model.
+- The base model did not recover the expected invoice schema on the validation set.
+- The fine-tuned model recovered multiple key fields with high exact-match accuracy.
+
+### Full Validation-Set Results
+
+Validation documents evaluated: `49`
+
+Document-level exact match:
+
+- base model: `0.0000`
+- fine-tuned model: `0.0000`
+
+Field-level exact-match accuracy:
+
+| Field | Base | Fine-tuned |
+|---|---:|---:|
+| `invoice_no` | 0.0000 | 1.0000 |
+| `invoice_date` | 0.0000 | 1.0000 |
+| `seller` | 0.0000 | 0.0000 |
+| `client` | 0.0000 | 0.0000 |
+| `seller_tax_id` | 0.0000 | 0.9592 |
+| `client_tax_id` | 0.0000 | 1.0000 |
+| `iban` | 0.0000 | 0.3878 |
+| `total_net_worth` | 0.0000 | 0.9184 |
+| `total_vat` | 0.0000 | 0.9184 |
+| `total_gross_worth` | 0.0000 | 0.8571 |
+
+Interpretation of full-set evaluation:
+
+- the fine-tuned model is decisively better on every important structured field;
+- invoice number and invoice date are perfect on this validation split;
+- tax IDs are almost perfect;
+- totals are strong;
+- seller/client free-text addresses are still weak under strict exact match;
+- IBAN is improved but still unstable.
+
+### Quick Qualitative Comparison
 
 - Exact full-string matches on sampled examples:
   - base model: `0 / 5`
