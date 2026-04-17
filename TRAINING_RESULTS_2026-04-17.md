@@ -1,25 +1,25 @@
-# Training Results (2026-04-17)
+# Результаты Обучения (2026-04-17)
 
-## Current Model
+## Текущая Модель
 
 `Bennet1996/donut-small`
 
-Current fine-tuned checkpoint:
+Текущий дообученный чекпоинт сохранён локально здесь:
 
 - `E:\thesis\outputs\Bennet1996_donut-small_ft_best`
 
-## Is It Better Than Before?
+## Стало Ли Лучше?
 
-Yes.
+Да.
 
-Previous stronger local run:
+Предыдущий хороший локальный прогон:
 
 - train samples: `199`
 - val samples: `49`
 - epochs: `5`
 - best val loss: `1.2529`
 
-Improved run:
+Улучшенный прогон:
 
 - train samples: `424`
 - val samples: `49`
@@ -29,25 +29,25 @@ Improved run:
 - learning rate: `1.5e-5`
 - best val loss: `0.7833`
 
-Validation loss improved from `1.2529` to `0.7833`.
+Итог: `val loss` улучшился с `1.2529` до `0.7833`.
 
-## Improved Training Setup
+## Конфигурация Улучшенного Обучения
 
-- Dataset: `katanaml-org/invoices-donut-data-v1`
-- Model: `Bennet1996/donut-small`
-- Device: `NVIDIA GeForce RTX 3080`
-- CUDA: enabled
-- Image size: `640x480`
-- Max target length: `256`
+- Датасет: `katanaml-org/invoices-donut-data-v1`
+- Модель: `Bennet1996/donut-small`
+- Устройство: `NVIDIA GeForce RTX 3080`
+- CUDA: включена
+- Размер изображения: `640x480`
+- Максимальная длина target: `256`
 - Scheduler: `cosine`
 - Warmup ratio: `0.08`
 - Weight decay: `0.01`
 - Gradient clipping: `1.0`
-- Early stopping support: enabled in code
+- Early stopping: поддерживается в коде
 
-## Metrics by Epoch
+## Метрики По Эпохам
 
-| Epoch | Train Loss | Val Loss |
+| Эпоха | Train Loss | Val Loss |
 |---|---:|---:|
 | 1 | 6.8848 | 3.6028 |
 | 2 | 3.1864 | 2.2377 |
@@ -58,26 +58,26 @@ Validation loss improved from `1.2529` to `0.7833`.
 | 7 | 0.6246 | 0.7852 |
 | 8 | 0.6102 | 0.7833 |
 
-## Best Result
+## Лучший Результат
 
-- Best validation loss: `0.7832700318219711`
-- Best epoch: `8`
+- Лучший validation loss: `0.7832700318219711`
+- Лучшая эпоха: `8`
 
-## Dataset Notes
+## Примечания По Датасету
 
-- Training split used: `424` valid samples
-- Validation split used: `49` valid samples
-- Skipped during preprocessing:
-  - `1` training sample
-  - `1` validation sample
-- Reason: `ground_truth` became empty after serialization
+- Использовано train-примеров: `424`
+- Использовано validation-примеров: `49`
+- Пропущено при подготовке:
+  - `1` train-пример
+  - `1` validation-пример
+- Причина: после сериализации `ground_truth` оказался пустым
 
-## Out-of-the-Box vs Fine-Tuned
+## Сравнение Base vs Fine-Tuned
 
-Two comparisons were run:
+Были проведены два типа сравнения:
 
-- a quick qualitative comparison on `5` validation samples;
-- a full field-level evaluation on the whole validation split (`49` valid documents).
+- быстрый качественный анализ на `5` validation-примерах;
+- полная field-level оценка на всей validation-выборке (`49` валидных документов).
 
 Base model:
 
@@ -87,15 +87,15 @@ Fine-tuned model:
 
 - `E:\thesis\outputs\Bennet1996_donut-small_ft_best`
 
-### Summary
+### Краткий Вывод
 
-- Full validation-set comparison confirms the fine-tuned model is much better than the base model.
-- The base model did not recover the expected invoice schema on the validation set.
-- The fine-tuned model recovered multiple key fields with high exact-match accuracy.
+- Полная проверка на validation подтверждает, что дообученная модель сильно лучше базовой.
+- Базовая модель фактически не восстанавливала нужную invoice-структуру.
+- Дообученная модель уверенно восстанавливает ключевые поля.
 
-### Full Validation-Set Results
+### Результаты На Всей Validation-Выборке
 
-Validation documents evaluated: `49`
+Оценено документов: `49`
 
 Document-level exact match:
 
@@ -104,7 +104,7 @@ Document-level exact match:
 
 Field-level exact-match accuracy:
 
-| Field | Base | Fine-tuned |
+| Поле | Base | Fine-tuned |
 |---|---:|---:|
 | `invoice_no` | 0.0000 | 1.0000 |
 | `invoice_date` | 0.0000 | 1.0000 |
@@ -117,129 +117,143 @@ Field-level exact-match accuracy:
 | `total_vat` | 0.0000 | 0.9184 |
 | `total_gross_worth` | 0.0000 | 0.8571 |
 
-Interpretation of full-set evaluation:
+Интерпретация:
 
-- the fine-tuned model is decisively better on every important structured field;
-- invoice number and invoice date are perfect on this validation split;
-- tax IDs are almost perfect;
-- totals are strong;
-- seller/client free-text addresses are still weak under strict exact match;
-- IBAN is improved but still unstable.
+- по всем важным структурным полям fine-tuned модель лучше;
+- `invoice_no` и `invoice_date` на этой validation-выборке идеальны;
+- tax ID почти идеальны;
+- суммы предсказываются очень хорошо;
+- `seller` и `client` как длинный свободный текст пока слабые при строгом exact match;
+- `IBAN` заметно улучшился, но ещё нестабилен.
 
 ### Quick Qualitative Comparison
 
-- Exact full-string matches on sampled examples:
+- Полное совпадение всей строки на этих 5 примерах:
   - base model: `0 / 5`
   - fine-tuned model: `0 / 5`
-- Despite that, the fine-tuned model is clearly better qualitatively.
-- The base model often produces unrelated document structure and even irrelevant foreign-language fields.
-- The fine-tuned model usually predicts the invoice structure correctly and often gets invoice number, date, tax IDs, and totals close or correct, though it still duplicates some closing tags and sometimes slightly distorts addresses or amounts.
+- Но качественно fine-tuned модель намного лучше.
+- Base model часто генерирует нерелевантную структуру и посторонние поля.
+- Fine-tuned модель уже предсказывает правильный invoice-формат, нужные идентификаторы и близкие к истине суммы, хотя пока иногда дублирует закрывающие теги и слегка искажает адреса или суммы.
 
-### Sample 1
+### Пример 1
+
+![Документ 41](report_assets/val_41.png)
 
 - Dataset index: `41`
-- Ground truth key fields:
+- Ground truth ключевые поля:
   - invoice_no: `32530472`
   - invoice_date: `08/27/2015`
   - gross: `$ 187,00`
 - Base model:
-  - generated unrelated fields like `StraГџe`, `Geburtsdatum`, `Gesamtbrutto`
+  - сгенерировала нерелевантные поля вроде `StraГџe`, `Geburtsdatum`, `Gesamtbrutto`
 - Fine-tuned model:
-  - recovered `invoice_no = 32530472`
-  - recovered `invoice_date = 08/27/2015`
-  - recovered gross total close to correct: `$ 187,00`
-  - still distorted seller/client text and duplicated closing tags
+  - правильно восстановила `invoice_no = 32530472`
+  - правильно восстановила `invoice_date = 08/27/2015`
+  - правильно или почти правильно восстановила итоговую сумму `$ 187,00`
+  - всё ещё искажает seller/client текст и дублирует хвостовые теги
 
-### Sample 2
+### Пример 2
+
+![Документ 7](report_assets/val_7.png)
 
 - Dataset index: `7`
-- Ground truth key fields:
+- Ground truth ключевые поля:
   - invoice_no: `67583819`
   - invoice_date: `06/01/2012`
   - net: `$ 889,67`
   - gross: `978,64`
 - Base model:
-  - produced unrelated output and wrong structure
+  - выдала нерелевантный текст и неверную структуру
 - Fine-tuned model:
-  - recovered `invoice_no = 67583819`
-  - recovered `invoice_date = 06/01/2012`
-  - recovered `seller_tax_id = 911-94-3128`
-  - recovered `client_tax_id = 911-97-3515`
-  - gross amount was close but not exact
+  - правильно восстановила `invoice_no = 67583819`
+  - правильно восстановила `invoice_date = 06/01/2012`
+  - правильно восстановила `seller_tax_id = 911-94-3128`
+  - правильно восстановила `client_tax_id = 911-97-3515`
+  - итоговая сумма получилась близкой, но не идеально точной
 
-### Sample 3
+### Пример 3
+
+![Документ 1](report_assets/val_1.png)
 
 - Dataset index: `1`
-- Ground truth key fields:
+- Ground truth ключевые поля:
   - invoice_no: `16220332`
   - invoice_date: `05/15/2017`
   - gross: `$ 69138,73`
 - Base model:
-  - output was largely irrelevant and structurally wrong
+  - вывела в основном нерелевантную и структурно неверную последовательность
 - Fine-tuned model:
-  - recovered invoice number and date correctly
-  - recovered tax IDs correctly
-  - recovered IBAN correctly
-  - gross amount stayed very close
-  - extra duplicated suffix text still appears
+  - правильно восстановила номер и дату
+  - правильно восстановила tax IDs
+  - правильно восстановила `IBAN`
+  - итоговая сумма очень близка к правильной
+  - в конце всё ещё появляется лишний дублирующий текст
 
-### Sample 4
+### Пример 4
+
+![Документ 48](report_assets/val_48.png)
 
 - Dataset index: `48`
-- Ground truth key fields:
+- Ground truth ключевые поля:
   - invoice_no: `37959814`
   - invoice_date: `07/12/2013`
   - net: `$6623,62`
   - gross: `$7285,98`
 - Base model:
-  - collapsed into unusable repetitive text
+  - практически развалилась в повторяющийся нерабочий текст
 - Fine-tuned model:
-  - recovered invoice number and date correctly
-  - recovered seller/client tax IDs correctly
-  - recovered IBAN correctly
-  - recovered gross total correctly
-  - VAT value had an error and output still had repeated tail text
+  - правильно восстановила номер и дату
+  - правильно восстановила seller/client tax IDs
+  - правильно восстановила `IBAN`
+  - правильно восстановила gross total
+  - ошиблась в VAT и оставила повторяющийся хвост
 
-### Sample 5
+### Пример 5
+
+![Документ 17](report_assets/val_17.png)
 
 - Dataset index: `17`
-- Ground truth key fields:
+- Ground truth ключевые поля:
   - invoice_no: `64281058`
   - invoice_date: `11/08/2019`
   - net: `$ 14 014,99`
   - gross: `$ 15 416,49`
 - Base model:
-  - produced mostly irrelevant template-like output
+  - выдала в основном нерелевантный шаблонный текст
 - Fine-tuned model:
-  - recovered invoice number and date correctly
-  - recovered both tax IDs correctly
-  - recovered IBAN correctly
-  - gross amount was very close
-  - still shows duplicated structural ending
+  - правильно восстановила номер и дату
+  - правильно восстановила оба tax ID
+  - правильно восстановила `IBAN`
+  - gross amount получился очень близким
+  - всё ещё заметен структурный хвост
 
-## Practical Interpretation
+## Практический Вывод
 
-The fine-tuned model is already much more useful than the out-of-the-box model for this invoice task.
+Дообученная модель уже заметно полезнее, чем out-of-the-box версия для invoice-задачи.
 
-Main improvement:
+Главные улучшения:
 
-- the model learned the expected invoice schema;
-- it now predicts task-relevant fields instead of generic unrelated text;
-- core identifiers are often correct.
+- модель научилась ожидаемой invoice-структуре;
+- теперь она предсказывает task-relevant поля вместо нерелевантного текста;
+- ключевые идентификаторы и суммы часто правильные.
 
-Main remaining issues:
+Главные оставшиеся проблемы:
 
-- duplicated closing tags;
-- occasional corruption of addresses;
-- occasional small numeric mistakes in totals or VAT.
+- дублирующиеся закрывающие теги;
+- периодическое искажение адресов;
+- иногда есть небольшие ошибки в суммах или VAT;
+- `IBAN` ещё требует улучшения.
 
-## Useful Next Step
+## Следующий Полезный Шаг
 
-The next high-value improvement would be to evaluate field-level accuracy automatically, for example:
+Самый полезный следующий шаг — улучшать модель под слабые поля:
 
-- invoice number accuracy
-- date accuracy
-- seller/client tax ID accuracy
-- gross/net/vat exact match rate
+- `seller`
+- `client`
+- `iban`
 
-That would be more informative than loss alone.
+Практически это можно делать через:
+
+- более строгую постобработку вывода;
+- дополнительное дообучение;
+- отдельную field-level нормализацию для длинных адресов и IBAN.
