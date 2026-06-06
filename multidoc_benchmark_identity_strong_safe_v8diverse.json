@@ -1,0 +1,347 @@
+{
+  "dataset_size": 5,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.5111904761904762,
+      "precision": 0.5445238095238095,
+      "recall": 0.5111904761904762,
+      "f1_score": 0.5223015873015874
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.46619047619047616,
+      "precision": 0.49952380952380954,
+      "recall": 0.46619047619047616,
+      "f1_score": 0.4773015873015873
+    }
+  },
+  "samples": [
+    {
+      "id": "passport_michelle_obama",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "910239248",
+        "surname": "OBAMA",
+        "given_names": "MICHELLE",
+        "nationality": "UNITED STATES OF AMERICA",
+        "date_of_birth": "17 Jan 1964",
+        "sex": "F",
+        "place_of_birth": "ILLINOIS, U.S.A.",
+        "date_of_issue": "06 Dec 2013",
+        "date_of_expiry": "05 Dec 2018",
+        "issuing_authority": "United States Department of State"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P | USA\n910239248\nSignature of Bearer / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\nSIGNATURE OF BEARER / SIGNATURE DU TITULAIRE / FIRMA DELTITULAR",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": "910239248",
+          "surname": "OBAMA",
+          "given_names": "MICHELLE",
+          "nationality": "UNITED STATES OF AMERICA",
+          "date_of_birth": "17 Jan 1964",
+          "sex": null,
+          "place_of_birth": "ILLINOIS, U.S.A.",
+          "date_of_issue": "06 Dec 2013",
+          "date_of_expiry": "06 Dec 2013",
+          "issuing_authority": "United States Department of State",
+          "mrz": "05 Dec 2018\nEndorsements / Mentions Speciales / Anctaciones\nSEE PAGE 51\nUSA\nP<USAOBAMA<<MICHELLE<<<<<<<<<<<<<><><><<><<9102392482USA6401171F181205190078100<129676"
+        },
+        "raw": {
+          "generated_text": "P\n910239248\nSignature of Bearer / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\nUnited States of America\nType / Type / Tip.\nCafe Code Cafecio\nPassport No. (for du Passeport) / No. de Pasporte\nUSA\nSurname / Norn / Apenilcos\nOBAMA\nGiven Names / Prenons / Monres\nMICHELLE\nNationality / Nationalité / Nacionalidad\nUNITED STATES OF AMERICA\nDate of birth / Date de résistance / Fecha de traducción\n17 Jan 1964\nPlano / Plano / Lleu de naissance / Lugue de nacimiento\nILINIOIS, U.S.A.\nDate / Içusas / Date / déliverance / Fecha de expedición\n06 Dec 2013\nDate d'expiration / Date d'exploitation / Fech d'accident / Dernal d'équivie / Fiché d'acquisition / Fiche d'arrêts / Fachs / Fidés",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "document_number": "910239248",
+          "surname": "OBAMA",
+          "given_names": "MICHELLE",
+          "nationality": "USA",
+          "issuing_authority": "United States Department of State",
+          "mrz": "05 Dec 2018\nEndorsements / Mentions Speciales / Anctaciones\nSEE PAGE 51\nUSA\nP<USAOBAMA<<MICHELLE<<<<<<<<<<<<<><><><<><<9102392482USA6401171F181205190078100<129676",
+          "date_of_birth": "17 Jan 1964",
+          "place_of_birth": "ILLINOIS, U.S.A.",
+          "date_of_issue": "06 Dec 2013",
+          "date_of_expiry": "06 Dec 2013"
+        },
+        "raw": {
+          "generated_text": "P: USA  \n910239248  \nUSA  \n\nSignature of BABAR / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\n\nUnited States of America\n\nType / Type / Type\n\nDate of Expiration / Date of Expi",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    },
+    {
+      "id": "synthetic-usa-driver-license_000",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": [
+          "C"
+        ]
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "05191992",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": null,
+          "surname": null,
+          "given_names": null,
+          "date_of_birth": "04/17/2018",
+          "place_of_birth": null,
+          "address": null,
+          "date_of_issue": "10/30/2116",
+          "date_of_expiry": "01/16/2014",
+          "issuing_authority": null,
+          "categories": []
+        },
+        "raw": {
+          "generated_text": "05191992",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "date_of_birth": "04/17/2018",
+          "date_of_issue": "10/30/2116",
+          "date_of_expiry": "01/16/2014",
+          "categories": "[]"
+        },
+        "raw": {
+          "generated_text": "{\n  \"C| class\": \"CLASS\",\n   \"END_NONE\": \"END NONE\",\n}",
+          "parsed_json": {
+            "C| class": "CLASS",
+            "END_NONE": "END NONE"
+          },
+          "salvaged_from_generated_text": true
+        }
+      }
+    },
+    {
+      "id": "synthetic-usa-driver-license_002",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": [
+          "C"
+        ]
+      },
+      "out_of_the_box": {
+        "fields": {
+          "LDL": "{'EXP_04/17/2018': {}}"
+        },
+        "raw": {
+          "generated_text": "{\n  \"LDL\": {\n    \"EXP_04/17/2018\": {text: \"CLASS C\",}\n    {END_NONE\": {}}\n  }\n}",
+          "parsed_json": {
+            "LDL": {
+              "EXP_04/17/2018": {}
+            }
+          }
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": "18951467",
+          "surname": "DAVIS",
+          "given_names": "MICHAEL",
+          "date_of_birth": "05/19/1992",
+          "place_of_birth": null,
+          "address": "3524 BREMEN DRIVE",
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "04/17/2018",
+          "issuing_authority": null,
+          "categories": [
+            "C"
+          ]
+        },
+        "raw": {
+          "generated_text": "18951467\nEXP 04/17/2018\nEND NONE\nLN DAVIS\nFN MICHAEL\n3524 BREMEN DRIVE\nSACRAMENTO, CA 95821\nDOB 05/19/181992\nRSTRONE\nSEX M\nHAIR BRN\nEYES BRN",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "license_number": "18951467",
+          "surname": "DAVIS",
+          "date_of_birth": "05/19/1992",
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "04/17/2018",
+          "categories": "['C']",
+          "given_names": "MICHAEL",
+          "address": "3524 BREMEN DRIVE"
+        },
+        "raw": {
+          "generated_text": "{\n  \"Citation\": \"18951467\",\n  text: \"EXP 04/17/2018 END NONE\"\n}",
+          "parsed_json": {
+            "Citation": "18951467"
+          },
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    },
+    {
+      "id": "passport-dataset_000",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": null,
+        "surname": "AL FARSI",
+        "given_names": "AHMAD AL",
+        "nationality": "ARE",
+        "date_of_birth": null,
+        "sex": "M",
+        "place_of_birth": null,
+        "date_of_issue": "10/02/2015",
+        "date_of_expiry": null,
+        "issuing_authority": "????? ??? ???? ????? ??? ????? ??????? 10/02/2015 ????? ???? ?????? nature",
+        "mrz": "P<FARSI<<AHMAD<AL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": "AL FARSI",
+          "given_names": "AHMAD AL",
+          "nationality": "ARE",
+          "date_of_birth": null,
+          "sex": "M",
+          "place_of_birth": null,
+          "date_of_issue": "10/02/2015",
+          "date_of_expiry": null,
+          "issuing_authority": "الجنس ذكر مكان السبك دبي تاريخ الاصدار 10/02/2015 توقيع حامل الجواب nature",
+          "mrz": "P<FARSI<<AHMAD<AL<(\""
+        },
+        "raw": {
+          "generated_text": "United Arab Emirates",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "surname": "AL FARSI",
+          "given_names": "AHMAD AL",
+          "nationality": "ARE",
+          "sex": "M",
+          "date_of_issue": "10/02/2015",
+          "issuing_authority": "الجنس ذكر مكان السبك دبي تاريخ الاصدار 10/02/2015 توقيع حامل الجواب nature",
+          "mrz": "P<FARSI<<AHMAD<AL<(\""
+        },
+        "raw": {
+          "generated_text": "{\n    \"text\": \"United Arab Emirates\",\n    :\"Passport No Z43R34255\",\n}",
+          "parsed_json": {
+            "text": "United Arab Emirates"
+          },
+          "salvaged_from_generated_text": true
+        }
+      }
+    },
+    {
+      "id": "passport-dataset_002",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "254R76423",
+        "surname": null,
+        "given_names": null,
+        "nationality": "ARE",
+        "date_of_birth": "24/11/1989",
+        "sex": "F",
+        "place_of_birth": null,
+        "date_of_issue": null,
+        "date_of_expiry": "16/06/2018",
+        "issuing_authority": "<<",
+        "mrz": null
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": "AL MANSOURI",
+          "given_names": "LAYLA",
+          "nationality": null,
+          "date_of_birth": null,
+          "sex": null,
+          "place_of_birth": null,
+          "date_of_issue": null,
+          "date_of_expiry": null,
+          "issuing_authority": "<<",
+          "mrz": null
+        },
+        "raw": {
+          "generated_text": "P",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "surname": "AL MANSOURI",
+          "given_names": "LAYLA",
+          "issuing_authority": "<<"
+        },
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:\\thesis\\data\\multidoc\\identity_eval_v5.jsonl"
+  ],
+  "adapter_dir": "E:\\thesis\\outputs\\paddleocr_vl_multidoc_lora_strong_safe_v8diverse"
+}

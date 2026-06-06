@@ -1,0 +1,17 @@
+$env:MODEL_NAME = "Bennet1996/donut-small"
+$env:MAX_TRAIN = "0"
+$env:MAX_VAL = "0"
+$env:MAX_LENGTH = "256"
+$env:NUM_EPOCHS = "8"
+$env:IMAGE_WIDTH = "640"
+$env:IMAGE_HEIGHT = "480"
+$env:GRADIENT_ACCUMULATION_STEPS = "4"
+$env:LEARNING_RATE = "1.5e-5"
+$env:WEIGHT_DECAY = "0.01"
+$env:WARMUP_RATIO = "0.08"
+$env:MAX_GRAD_NORM = "1.0"
+$env:USE_GRADIENT_CHECKPOINTING = "false"
+$env:FREEZE_ENCODER = "false"
+$env:EARLY_STOPPING_PATIENCE = "2"
+
+& C:\Users\wasd\miniconda3\Scripts\conda.exe run -p E:\thesis\.conda311 python E:\thesis\train_local.py

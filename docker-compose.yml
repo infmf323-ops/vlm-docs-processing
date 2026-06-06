@@ -1,0 +1,160 @@
+# Полный стек системы извлечения данных: БД, объектное хранилище, API, worker, UI.
+#
+# Запуск (после настройки путей к моделям):
+#   docker compose up -d --build
+#
+# ВНИМАНИЕ: API и worker используют ML-модели. Каталоги моделей (./outputs) и кэш
+# HuggingFace (./.hf-cache) монтируются как volume. Перед запуском проверьте
+# MODEL_PATH / PASSPORT_MRZ_ADAPTER_DIR и при наличии GPU — настройте проброс.
+
+x-backend-env: &backend-env
+  POSTGRES_HOST: postgres
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: ${POSTGRES_DB:-invoice_ui}
+  POSTGRES_USER: ${POSTGRES_USER:-invoice_user}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-invoice_password}
+  S3_ENDPOINT_URL: http://minio:9000
+  S3_ACCESS_KEY: ${S3_ACCESS_KEY:-minioadmin}
+  S3_SECRET_KEY: ${S3_SECRET_KEY:-minioadmin}
+  S3_BUCKET: ${S3_BUCKET:-invoice-jobs}
+  SECRET_KEY: ${SECRET_KEY:-change-me}
+  AUTO_CREATE_TABLES: "false"
+  MODEL_PATH: ${MODEL_PATH:-/models/Bennet1996_donut-small_ft_best}
+  PASSPORT_MRZ_ADAPTER_DIR: ${PASSPORT_MRZ_ADAPTER_DIR:-}
+  HUGGINGFACE_HOME: /hf-cache
+  DEVICE: ${DEVICE:-cpu}
+  # Очередь задач: false = воркер-поллер; true = RQ (нужен сервис redis и worker_rq).
+  USE_TASK_QUEUE: ${USE_TASK_QUEUE:-false}
+  REDIS_URL: redis://redis:6379/0
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: invoice_ui_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-invoice_ui}
+      POSTGRES_USER: ${POSTGRES_USER:-invoice_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-invoice_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-invoice_user}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    container_name: invoice_ui_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY:-minioadmin}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Одноразовая инициализация bucket в MinIO.
+  createbuckets:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://minio:9000 ${S3_ACCESS_KEY:-minioadmin} ${S3_SECRET_KEY:-minioadmin} &&
+      mc mb --ignore-existing local/${S3_BUCKET:-invoice-jobs} &&
+      echo 'bucket готов';
+      "
+
+  api:
+    build: ./backend
+    container_name: invoice_ui_api
+    environment:
+      <<: *backend-env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    # Применяем миграции, затем запускаем API.
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    volumes:
+      - ./outputs:/models:ro
+      - ./.hf-cache:/hf-cache
+    ports:
+      - "8000:8000"
+
+  worker:
+    build: ./backend
+    container_name: invoice_ui_worker
+    environment:
+      <<: *backend-env
+    depends_on:
+      api:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    command: python worker.py
+    volumes:
+      - ./outputs:/models:ro
+      - ./.hf-cache:/hf-cache
+
+  # Альтернатива поллингу: RQ-воркер. Запуск: USE_TASK_QUEUE=true docker compose --profile rq up.
+  # При этом обычный worker запускать не нужно.
+  worker_rq:
+    build: ./backend
+    container_name: invoice_ui_worker_rq
+    profiles: ["rq"]
+    environment:
+      <<: *backend-env
+      USE_TASK_QUEUE: "true"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    command: python worker_rq.py
+    volumes:
+      - ./outputs:/models:ro
+      - ./.hf-cache:/hf-cache
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000/api/v1}
+    container_name: invoice_ui_frontend
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+
+volumes:
+  postgres_data:
+  minio_data:

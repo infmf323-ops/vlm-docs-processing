@@ -1,0 +1,145 @@
+{
+  "dataset_size": 2,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "samples": [
+    {
+      "id": "synthetic-usa-driver-license_000",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": []
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "05191992",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": "05191992",
+          "surname": null,
+          "given_names": null,
+          "date_of_birth": "01/16/2018",
+          "place_of_birth": null,
+          "address": null,
+          "date_of_issue": null,
+          "date_of_expiry": null,
+          "issuing_authority": null,
+          "categories": []
+        },
+        "raw": {
+          "generated_text": "05191992",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "license_number": "051919",
+          "date_of_birth": "01/16/2018",
+          "categories": "[]"
+        },
+        "raw": {
+          "generated_text": "{\n  \"text\": \"05191992\",\n}",
+          "parsed_json": {
+            "text": "05191992"
+          },
+          "salvaged_from_generated_text": true
+        }
+      }
+    },
+    {
+      "id": "synthetic-usa-driver-license_002",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "05191992",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": []
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "05101992",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": "05101992",
+          "surname": null,
+          "given_names": null,
+          "date_of_birth": "05/19/1892",
+          "place_of_birth": null,
+          "address": null,
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "01/16/1214",
+          "issuing_authority": null,
+          "categories": []
+        },
+        "raw": {
+          "generated_text": "05101992",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "license_number": "05191902",
+          "date_of_birth": "05/19/1892",
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "01/16/1214",
+          "categories": "[]"
+        },
+        "raw": {
+          "generated_text": "{\n  \"text\": \"05101992\",\n}",
+          "parsed_json": {
+            "text": "05101992"
+          },
+          "salvaged_from_generated_text": true
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:\\thesis\\data\\multidoc\\driver_license_eval_tmp.jsonl"
+  ],
+  "adapter_dir": "E:/thesis/outputs/paddleocr_vl_multidoc_lora_pilot"
+}

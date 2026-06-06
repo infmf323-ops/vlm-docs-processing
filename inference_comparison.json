@@ -1,0 +1,181 @@
+{
+  "base_model": "Bennet1996/donut-small",
+  "finetuned_model": "E:\\thesis\\outputs\\Bennet1996_donut-small_ft_best",
+  "num_samples": 5,
+  "samples": [
+    {
+      "dataset_index": 41,
+      "ground_truth": "<s_invoice><s_header><s_invoice_no>32530472</s_invoice_no><s_invoice_date>08/27/2015</s_invoice_date><s_seller>Cooper-Fox 00959 Gregory Valleys Apt. 881 East Samuel, CA 09564</s_seller><s_client>Williams-Lucero 303 Solomon Lake Apt. 277 Weberland, OR 55395</s_client><s_seller_tax_id>955-98-1434</s_seller_tax_id><s_client_tax_id>926-86-7447</s_client_tax_id><s_iban>GB63BMAU124512451382016568</s_iban></s_header><s_summary><s_total_net_worth>$ 170,00</s_total_net_worth><s_total_vat>$ 17,00</s_total_vat><s_total_gross_worth>$ 187,00</s_total_gross_worth></s_summary>",
+      "base_raw_prediction": "<unk> <s_Straße> <s_Straße> Walter </s_Name> <s_Gesetzl. Netto> 3.604,49 </s_Gesamtbrutto> <s_Geburtsdatum> 06 03 09 1964 </s_Geburtsdatum> </s>",
+      "base_formatted_prediction": "<s_invoice><s_header><s_invoice_date>06/03/2009</s_invoice_date></s_header><s_summary><s_total_net_worth>$ 3.604,49</s_total_net_worth></s_summary>",
+      "base_prediction_schema": {
+        "invoice_no": null,
+        "invoice_date": "06/03/2009",
+        "seller": null,
+        "client": null,
+        "seller_tax_id": null,
+        "client_tax_id": null,
+        "iban": null,
+        "total_net_worth": "$ 3.604,49",
+        "total_vat": null,
+        "total_gross_worth": null
+      },
+      "finetuned_raw_prediction": "<s_invoice> <s_header> <s_header> <s_invoice_no> 32530472 </s_invoice_no> <s_invoice_date> 08/27/2015 </s_invoice_date> <s_seller> Cooper-Fox 956 Carrway Valley Apt. 881 East Samuel, CA 00964 </s_seller> <s_client> Williams-Lucero 747 Jennifer Apt. 277 Weberland, OR 55395 </s_client> <s_seller_tax_id> 955-98-1434 </s_seller_tax_id> <s_client_tax_id> 926-86-7447 </s_client_tax_id> <s_iban> GB63BMAU12451382016568 </s_iban> </s_header> <s_summary> <s_total_net_worth> $ 179,00 </s_total_net_worth> <s_total_vat> $17,00 </s_total_vat> <s_total_gross_worth> $ 187,00 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> </s>",
+      "finetuned_formatted_prediction": "<s_invoice><s_header><s_invoice_no>32530472</s_invoice_no><s_invoice_date>08/27/2015</s_invoice_date><s_seller>Cooper-Fox 956 Carrway Valley Apt. 881 East Samuel, CA 00964</s_seller><s_client>Williams-Lucero 747 Jennifer Apt. 277 Weberland, OR 55395</s_client><s_seller_tax_id>955-98-1434</s_seller_tax_id><s_client_tax_id>926-86-7447</s_client_tax_id><s_iban>GB63BMAU12451382016568</s_iban></s_header><s_summary><s_total_net_worth>$ 179,00</s_total_net_worth><s_total_vat>$17,00</s_total_vat><s_total_gross_worth>$ 187,00</s_total_gross_worth></s_summary>",
+      "finetuned_prediction_schema": {
+        "invoice_no": "32530472",
+        "invoice_date": "08/27/2015",
+        "seller": "Cooper-Fox 956 Carrway Valley Apt. 881 East Samuel, CA 00964",
+        "client": "Williams-Lucero 747 Jennifer Apt. 277 Weberland, OR 55395",
+        "seller_tax_id": "955-98-1434",
+        "client_tax_id": "926-86-7447",
+        "iban": "GB63BMAU12451382016568",
+        "total_net_worth": "$ 179,00",
+        "total_vat": "$17,00",
+        "total_gross_worth": "$ 187,00"
+      },
+      "base_exact_match": false,
+      "finetuned_exact_match": false
+    },
+    {
+      "dataset_index": 7,
+      "ground_truth": "<s_invoice><s_header><s_invoice_no>67583819</s_invoice_no><s_invoice_date>06/01/2012</s_invoice_date><s_seller>Gibson Ltd 92975 Scott Mount Lake Laurentown, ND 29361</s_seller><s_client>Gomez-Martinez 225 King Roads West Scott, NV 81463</s_client><s_seller_tax_id>911-94-3128</s_seller_tax_id><s_client_tax_id>911-97-3515</s_client_tax_id><s_iban>GB44NGGP09758261462915</s_iban></s_header><s_summary><s_total_net_worth>$ 889,67</s_total_net_worth><s_total_vat>$88,97</s_total_vat><s_total_gross_worth>978,64</s_total_gross_worth></s_summary>",
+      "base_raw_prediction": "<unk> <s_Straße> <s_Straße> König </s_Name> <s_Gesetzl. Netto> 2.420,49 </s_Gesamtbrutto> <s_Geburtsdatum> 07 04 1943 </s_Geburtsdatum> </s>",
+      "base_formatted_prediction": "<s_invoice><s_header><s_invoice_date>07/04/1943</s_invoice_date></s_header><s_summary><s_total_net_worth>$ 2.420,49</s_total_net_worth></s_summary>",
+      "base_prediction_schema": {
+        "invoice_no": null,
+        "invoice_date": "07/04/1943",
+        "seller": null,
+        "client": null,
+        "seller_tax_id": null,
+        "client_tax_id": null,
+        "iban": null,
+        "total_net_worth": "$ 2.420,49",
+        "total_vat": null,
+        "total_gross_worth": null
+      },
+      "finetuned_raw_prediction": "<s_invoice> <s_header> <s_header> <s_invoice_no> 67583819 </s_invoice_no> <s_invoice_date> 06/01/2012 </s_invoice_date> <s_seller> Gibson Ltd 71949 Adams Mount Lake Laurentown, ND 29361 </s_seller> <s_client> Gomez-Martinez 31424 Ashlyn Island West Scott, NV 81463 </s_client> <s_seller_tax_id> 911-94-3128 </s_seller_tax_id> <s_client_tax_id> 911-97-3515 </s_client_tax_id> <s_iban> GB44NGFP09758261462915 </s_iban> </s_header> <s_summary> <s_total_net_worth> $ 889,67 </s_total_net_worth> <s_total_vat> $88,97 </s_total_vat> <s_total_gross_worth> $ 976,64 </s_total_gross_worth> </s_summary> </s_summary> $975,64 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> </s>",
+      "finetuned_formatted_prediction": "<s_invoice><s_header><s_invoice_no>67583819</s_invoice_no><s_invoice_date>06/01/2012</s_invoice_date><s_seller>Gibson Ltd 71949 Adams Mount Lake Laurentown, ND 29361</s_seller><s_client>Gomez-Martinez 31424 Ashlyn Island West Scott, NV 81463</s_client><s_seller_tax_id>911-94-3128</s_seller_tax_id><s_client_tax_id>911-97-3515</s_client_tax_id><s_iban>GB44NGFP09758261462915</s_iban></s_header><s_summary><s_total_net_worth>$ 889,67</s_total_net_worth><s_total_vat>$88,97</s_total_vat><s_total_gross_worth>$ 976,64</s_total_gross_worth></s_summary>",
+      "finetuned_prediction_schema": {
+        "invoice_no": "67583819",
+        "invoice_date": "06/01/2012",
+        "seller": "Gibson Ltd 71949 Adams Mount Lake Laurentown, ND 29361",
+        "client": "Gomez-Martinez 31424 Ashlyn Island West Scott, NV 81463",
+        "seller_tax_id": "911-94-3128",
+        "client_tax_id": "911-97-3515",
+        "iban": "GB44NGFP09758261462915",
+        "total_net_worth": "$ 889,67",
+        "total_vat": "$88,97",
+        "total_gross_worth": "$ 976,64"
+      },
+      "base_exact_match": false,
+      "finetuned_exact_match": false
+    },
+    {
+      "dataset_index": 1,
+      "ground_truth": "<s_invoice><s_header><s_invoice_no>16220332</s_invoice_no><s_invoice_date>05/15/2017</s_invoice_date><s_seller>Lawson and Sons 78147 Jackson Fords Gilesland, MI 45057</s_seller><s_client>Mosley LLC 913 Lawrence Mountains New Andrew, KY 46723</s_client><s_seller_tax_id>995-72-1473</s_seller_tax_id><s_client_tax_id>988-78-0364</s_client_tax_id><s_iban>GB30RUVA78076817247388</s_iban></s_header><s_summary><s_total_net_worth>$62853,39</s_total_net_worth><s_total_vat>$6285,34</s_total_vat><s_total_gross_worth>$ 69138,73</s_total_gross_worth></s_summary>",
+      "base_raw_prediction": "<unk> <s_Straße> Lange </s_Name> <s_Gesetzl. Netto> 8.637 </s_Straße> <s_Stadt> 308142 </s_Straße> <s_Stadt> 30849 </s_Stadt> <s_Name> Lennar </s_Name> <s_Gesetzl. Netto> 8.978,93 </s_Gesamtbrutto> <s_Geburtsdatum> 05 07 1937 </s_Geburtsdatum> </s>",
+      "base_formatted_prediction": "<s_invoice><s_header><s_invoice_no>308142</s_invoice_no><s_invoice_date>05/07/1937</s_invoice_date><s_seller>Lennar Lange </s_Name> <s_Gesetzl. Netto> 8.637 308142 </s_Straße> <s_Stadt> 30849</s_seller></s_header><s_summary><s_total_net_worth>$ 8.978,93</s_total_net_worth></s_summary>",
+      "base_prediction_schema": {
+        "invoice_no": "308142",
+        "invoice_date": "05/07/1937",
+        "seller": "Lennar Lange </s_Name> <s_Gesetzl. Netto> 8.637 308142 </s_Straße> <s_Stadt> 30849",
+        "client": null,
+        "seller_tax_id": null,
+        "client_tax_id": null,
+        "iban": null,
+        "total_net_worth": "$ 8.978,93",
+        "total_vat": null,
+        "total_gross_worth": null
+      },
+      "finetuned_raw_prediction": "<s_invoice> <s_header> <s_header> <s_invoice_no> 16220332 </s_invoice_no> <s_invoice_date> 05/15/2017 </s_invoice_date> <s_seller> Lawson and Sons 747 David Shores Gilesland, MI 45057 </s_seller> <s_client> Mosley LLC 868 Garcia Mountains New Andrew, KY 46723 </s_client> <s_seller_tax_id> 995-72-1473 </s_seller_tax_id> <s_client_tax_id> 988-78-0364 </s_client_tax_id> <s_iban> GB30RUVA78076817247388 </s_iban> </s_header> <s_summary> <s_total_net_worth> $62 853,39 </s_total_net_worth> <s_total_vat> $6285,34 </s_total_vat> <s_total_gross_worth> $69 138,73 </s_total_gross_worth> </s_summary> </s_summary> $60138,73 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> $60,58 </s_total_gross_worth> </s_summary> </s_summary> $60 138,73 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> </s_summary> </s>",
+      "finetuned_formatted_prediction": "<s_invoice><s_header><s_invoice_no>16220332</s_invoice_no><s_invoice_date>05/15/2017</s_invoice_date><s_seller>Lawson and Sons 747 David Shores Gilesland, MI 45057</s_seller><s_client>Mosley LLC 868 Garcia Mountains New Andrew, KY 46723</s_client><s_seller_tax_id>995-72-1473</s_seller_tax_id><s_client_tax_id>988-78-0364</s_client_tax_id><s_iban>GB30RUVA78076817247388</s_iban></s_header><s_summary><s_total_net_worth>$62 853,39</s_total_net_worth><s_total_vat>$6285,34</s_total_vat><s_total_gross_worth>$69 138,73</s_total_gross_worth></s_summary>",
+      "finetuned_prediction_schema": {
+        "invoice_no": "16220332",
+        "invoice_date": "05/15/2017",
+        "seller": "Lawson and Sons 747 David Shores Gilesland, MI 45057",
+        "client": "Mosley LLC 868 Garcia Mountains New Andrew, KY 46723",
+        "seller_tax_id": "995-72-1473",
+        "client_tax_id": "988-78-0364",
+        "iban": "GB30RUVA78076817247388",
+        "total_net_worth": "$62 853,39",
+        "total_vat": "$6285,34",
+        "total_gross_worth": "$69 138,73"
+      },
+      "base_exact_match": false,
+      "finetuned_exact_match": false
+    },
+    {
+      "dataset_index": 48,
+      "ground_truth": "<s_invoice><s_header><s_invoice_no>37959814</s_invoice_no><s_invoice_date>07/12/2013</s_invoice_date><s_seller>Moore, Wells and Wilson 98502 Walker Parkways Cassandraside, OR 96399</s_seller><s_client>Hopkins-Moreno 6832 Rice Mill Apt. 735 Carterfort, NV 04380</s_client><s_seller_tax_id>967-92-2894</s_seller_tax_id><s_client_tax_id>970-94-8001</s_client_tax_id><s_iban>GB05XBMF67798318915337</s_iban></s_header><s_summary><s_total_net_worth>$6623,62</s_total_net_worth><s_total_vat>$ 662,36</s_total_vat><s_total_gross_worth>$7285,98</s_total_gross_worth></s_summary>",
+      "base_raw_prediction": "<unk> <s_Straße> Mön <s_Straße> Mönster </s_Name> <s_Gesetzl. Netto> 4.3.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9.1.9</s>",
+      "base_formatted_prediction": "<s_invoice><s_header></s_header><s_summary></s_summary>",
+      "base_prediction_schema": {
+        "invoice_no": null,
+        "invoice_date": null,
+        "seller": null,
+        "client": null,
+        "seller_tax_id": null,
+        "client_tax_id": null,
+        "iban": null,
+        "total_net_worth": null,
+        "total_vat": null,
+        "total_gross_worth": null
+      },
+      "finetuned_raw_prediction": "<s_invoice> <s_header> <s_header> <s_invoice_no> 37959814 </s_invoice_no> <s_invoice_date> 07/12/2013 </s_invoice_date> <s_seller> Moore, Wells and Wilson 47414 Thomas Island Cassandrasd, OR 96399 </s_seller> <s_client> Hopkins-Morenno 40611 Box Carterfort, NV 04380 </s_client> <s_seller_tax_id> 967-92-2894 </s_seller_tax_id> <s_client_tax_id> 970-94-8001 </s_client_tax_id> <s_iban> GB05XBMF67798318915337 </s_iban> </s_header> <s_total_net_worth> $6623,62 </s_total_net_worth> <s_total_vat> $ 602,36 </s_total_vat> <s_total_gross_worth> $7285,98 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> $683,98 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> </s>",
+      "finetuned_formatted_prediction": "<s_invoice><s_header><s_invoice_no>37959814</s_invoice_no><s_invoice_date>07/12/2013</s_invoice_date><s_seller>Moore, Wells and Wilson 47414 Thomas Island Cassandrasd, OR 96399</s_seller><s_client>Hopkins-Morenno 40611 Box Carterfort, NV 04380</s_client><s_seller_tax_id>967-92-2894</s_seller_tax_id><s_client_tax_id>970-94-8001</s_client_tax_id><s_iban>GB05XBMF67798318915337</s_iban></s_header><s_summary><s_total_net_worth>$6623,62</s_total_net_worth><s_total_vat>$ 602,36</s_total_vat><s_total_gross_worth>$7285,98</s_total_gross_worth></s_summary>",
+      "finetuned_prediction_schema": {
+        "invoice_no": "37959814",
+        "invoice_date": "07/12/2013",
+        "seller": "Moore, Wells and Wilson 47414 Thomas Island Cassandrasd, OR 96399",
+        "client": "Hopkins-Morenno 40611 Box Carterfort, NV 04380",
+        "seller_tax_id": "967-92-2894",
+        "client_tax_id": "970-94-8001",
+        "iban": "GB05XBMF67798318915337",
+        "total_net_worth": "$6623,62",
+        "total_vat": "$ 602,36",
+        "total_gross_worth": "$7285,98"
+      },
+      "base_exact_match": false,
+      "finetuned_exact_match": false
+    },
+    {
+      "dataset_index": 17,
+      "ground_truth": "<s_invoice><s_header><s_invoice_no>64281058</s_invoice_no><s_invoice_date>11/08/2019</s_invoice_date><s_seller>Zuniga, Short and Jensen 3742 Stephanie Haven Apt. 492 Port Davidfurt, NY 66413</s_seller><s_client>Wells Ltd 0691 Adam Brook South Brittany, WA 02993</s_client><s_seller_tax_id>984-91-8764</s_seller_tax_id><s_client_tax_id>951-97-2583</s_client_tax_id><s_iban>GB67BNED14756248228264</s_iban></s_header><s_summary><s_total_net_worth>$ 14 014,99</s_total_net_worth><s_total_vat>$1401,50</s_total_vat><s_total_gross_worth>$ 15 416,49</s_total_gross_worth></s_summary>",
+      "base_raw_prediction": "<unk> <s_Straße> <s_Straße> Eugener </s_Name> <s_Gesetzl. Netto> 1.4 </s_Straße> <s_Stadt> 70 </s_Straße> <s_Stadt> 204 </s_Stadt> <s_Name> Emile Stein </s_Name> <s_Gesetzl. Netto> 11.704,99 </s_Gesamtbrutto> <s_Geburtsdatum> 04 04 1974 </s_Geburtsdatum> </s>",
+      "base_formatted_prediction": "<s_invoice><s_header><s_invoice_date>04/04/1974</s_invoice_date><s_seller>Emile Stein <s_Straße> Eugener </s_Name> <s_Gesetzl. Netto> 1.4 70 </s_Straße> <s_Stadt> 204</s_seller></s_header><s_summary><s_total_net_worth>$ 11.704,99</s_total_net_worth></s_summary>",
+      "base_prediction_schema": {
+        "invoice_no": null,
+        "invoice_date": "04/04/1974",
+        "seller": "Emile Stein <s_Straße> Eugener </s_Name> <s_Gesetzl. Netto> 1.4 70 </s_Straße> <s_Stadt> 204",
+        "client": null,
+        "seller_tax_id": null,
+        "client_tax_id": null,
+        "iban": null,
+        "total_net_worth": "$ 11.704,99",
+        "total_vat": null,
+        "total_gross_worth": null
+      },
+      "finetuned_raw_prediction": "<s_invoice> <s_header> <s_header> <s_invoice_no> 64281058 </s_invoice_no> <s_invoice_date> 11/08/2019 </s_invoice_date> <s_seller> Zuniga, Short and Jensen 568 Garcia Ford Suite Apt. 492 Port Davidfurt, NY 66143 </s_seller> <s_client> Wells Ltd 314 Box Brook South Brittany, WA 02993 </s_client> <s_seller_tax_id> 984-91-8764 </s_seller_tax_id> <s_client_tax_id> 951-97-2583 </s_client_tax_id> <s_iban> GB67BNED14756248228264 </s_iban> </s_header> <s_summary> <s_total_net_worth> $ 14 014,99 </s_total_net_worth> <s_total_vat> $1401,50 </s_total_vat> <s_total_gross_worth> $ 15416,49 </s_total_gross_worth> </s_summary> </s_summary> </s_summary> $</s>",
+      "finetuned_formatted_prediction": "<s_invoice><s_header><s_invoice_no>64281058</s_invoice_no><s_invoice_date>11/08/2019</s_invoice_date><s_seller>Zuniga, Short and Jensen 568 Garcia Ford Suite Apt. 492 Port Davidfurt, NY 66143</s_seller><s_client>Wells Ltd 314 Box Brook South Brittany, WA 02993</s_client><s_seller_tax_id>984-91-8764</s_seller_tax_id><s_client_tax_id>951-97-2583</s_client_tax_id><s_iban>GB67BNED14756248228264</s_iban></s_header><s_summary><s_total_net_worth>$ 14 014,99</s_total_net_worth><s_total_vat>$1401,50</s_total_vat><s_total_gross_worth>$ 15416,49</s_total_gross_worth></s_summary>",
+      "finetuned_prediction_schema": {
+        "invoice_no": "64281058",
+        "invoice_date": "11/08/2019",
+        "seller": "Zuniga, Short and Jensen 568 Garcia Ford Suite Apt. 492 Port Davidfurt, NY 66143",
+        "client": "Wells Ltd 314 Box Brook South Brittany, WA 02993",
+        "seller_tax_id": "984-91-8764",
+        "client_tax_id": "951-97-2583",
+        "iban": "GB67BNED14756248228264",
+        "total_net_worth": "$ 14 014,99",
+        "total_vat": "$1401,50",
+        "total_gross_worth": "$ 15416,49"
+      },
+      "base_exact_match": false,
+      "finetuned_exact_match": false
+    }
+  ],
+  "summary": {
+    "base_exact_matches": 0,
+    "finetuned_exact_matches": 0
+  }
+}

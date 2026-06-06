@@ -1,0 +1,79 @@
+{
+  "dataset_size": 1,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "samples": [
+    {
+      "id": "synthetic-usa-driver-license_000",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": []
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "05191992\n05191992\n05191992\n05191992\n05191992\n05191992\n05191992\n051919",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": "18951467",
+          "surname": "DAVIS",
+          "given_names": "MICHAEL",
+          "date_of_birth": "05/19/1992",
+          "place_of_birth": null,
+          "address": "3524 BREMEN DRIVE",
+          "date_of_issue": "01/16/2014",
+          "date_of_expiry": "04/17/2018",
+          "issuing_authority": null,
+          "categories": []
+        },
+        "raw": {
+          "generated_text": "05191992\n01/16/2014\n18951467\nEXP 04/17/2018\nLN DAVIS\nFN MICHAEL\n3524 BREMEN DRIVE\nSACRAMENTO, CA 95821\nDOB 05/19/1992\nRSTRNONE\nSEX: M\nHAIR: BRN\nEYES: BRN\nRGT 5'-09\"\nWGT 125 Lb ...\nISS\nDD 10/30/2011 160221/AAFD/18",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {},
+        "raw": {
+          "generated_text": "{\n  \"document_type\": \"driver_license\",\n  \"fields\": {\n    \"class\": \"CLASS\",\n    \"end_none\": \"\",\n    \"end\": \"\",\n    \"end_none\": \"\",\n    \"end\": \"\",\n    \"end_none",
+          "parsed_json": null
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:\\thesis\\data\\multidoc\\bench_driver_license_1.jsonl"
+  ],
+  "adapter_dir": "E:\\thesis\\outputs\\paddleocr_vl_multidoc_lora_pilot_v2"
+}

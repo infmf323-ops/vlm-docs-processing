@@ -1,0 +1,53 @@
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.conda311/
+.hf/
+.hf-cache/
+.hf_run2/
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+
+# Local env files and secrets
+backend/.env
+backend/.env.ready
+frontend/.env
+
+# Large generated artifacts and scratch data
+artifacts/
+data/
+debug/
+logs/
+outputs/
+tmp_assignment_docx/
+presentation_assets/
+python-3.11.9-amd64.exe
+
+# Nested historical clone
+vlm-docs-processing/
+
+# Generated thesis outputs
+thesis_build/diploma.docx
+thesis_build/diploma.pdf
+thesis_build/*.tmp
+thesis_build/pg-*.png
+thesis_build/qg-*.png
+thesis_build/zk-*.png
+thesis_build/zk2-*.png
+
+# Binary office documents kept outside git
+*.docx
+*.pptx
+*.pdf

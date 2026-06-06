@@ -1,0 +1,96 @@
+{
+  "dataset_size": 1,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "samples": [
+    {
+      "id": "invoice_val_1",
+      "document_type": "invoice",
+      "expected_fields": {
+        "invoice_no": "16220332",
+        "invoice_date": "05/15/2017",
+        "currency": null,
+        "seller": {
+          "name": "Lawson and Sons 78147 Jackson Fords Gilesland, MI 45057",
+          "address": null,
+          "tax_id": "995-72-1473",
+          "iban": "GB30RUVA78076817247388"
+        },
+        "buyer": {
+          "name": "Mosley LLC 913 Lawrence Mountains New Andrew, KY 46723",
+          "address": null,
+          "tax_id": "988-78-0364"
+        },
+        "total_net": "$62853,39",
+        "total_tax": "$6285,34",
+        "total_gross": "$ 69138,73"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "| Seller | Client |\n| --- | --- |\n| (customer_name) and (name_value) | (customer_name) and (name_value) |\n| (order_number) and (order_value) | (order_number) and (order_value) |",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "invoice_no": null,
+          "invoice_date": null,
+          "due_date": null,
+          "currency": null,
+          "seller": {
+            "name": null,
+            "address": null,
+            "tax_id": null,
+            "iban": null
+          },
+          "buyer": {
+            "name": null,
+            "address": null,
+            "tax_id": null,
+            "iban": null
+          },
+          "line_items": [],
+          "total_net": null,
+          "total_tax": null,
+          "total_gross": null
+        },
+        "raw": {
+          "generated_text": "Invoice no. | Client | Client_ID | Client_Name | Client_Date of Issue | Client_Name_Date | Client_Name_Name | Client_Name_Name_Date | Client_Name_Name_Date_1 | Client_Name_Name_Date_2 | Client_Name_Name_Date_3 | Client_Name_Name_Date_4 | Client_Name_Name_Date_5 | Client_Name_Name_Date_6 | Client_Name_Name_Date_7 | Client_Name_Name_Date_8 | Client_Name_Name_Date_9 | Client_Name_Name_Date_10 | Client_Name_Name_Date_11 | Client_Name_Name_Date_12 | Client_Name_Name_Date_13 | Client_Name_Name_Date_14 | Client_Name_Name_Date_15 | Client_Name_Name_Date_16 | Client_Name_Name_Date_17 | Client_Name_Name_Date_18 | Client_Name_Name_Date_19 | Client_Name_Name_Date_20 | Client_Name_Name",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "invoice"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {},
+        "raw": {
+          "generated_text": "| Seller | Client |\n| --- | --- |\n| (customer_name) | (customer_name) |\n| (product_name) | (product_name) |\n| (price) | (price) |\n| (price_rate) | (price_rate) |",
+          "parsed_json": null
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:/thesis/data/multidoc/pilot_val.jsonl"
+  ],
+  "adapter_dir": "E:/thesis/outputs/paddleocr_vl_multidoc_lora_pilot"
+}

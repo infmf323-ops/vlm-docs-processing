@@ -1,0 +1,27 @@
+{
+  "image_path": "E:/thesis/data/multidoc/external/ud_biometrics/synthetic-usa-driver-license/synthetic-usa-driver-license_000.png",
+  "fields": {
+    "license_number": "18951467",
+    "surname": "DAVIS",
+    "given_names": "MICHAEL",
+    "date_of_birth": "05/19/1992",
+    "place_of_birth": null,
+    "address": "3524 BREMEN DRIVE",
+    "date_of_issue": "01/16/2014",
+    "date_of_expiry": "04/17/2018",
+    "issuing_authority": null,
+    "categories": []
+  },
+  "validation": {
+    "is_valid": true,
+    "issues": [
+      {
+        "code": "heuristic_driver_license_mapping",
+        "message": "Driver license fields were mapped from PaddleOCR-VL OCR output using heuristic parsing.",
+        "field_path": null,
+        "severity": "info"
+      }
+    ]
+  },
+  "raw_text": "05191992\n01/16/2014\n18951467\nEXP 04/17/2018\nLN DAVIS\nFN MICHAEL\n3524 BREMEN DRIVE\nSACRAMENTO, CA 95821\nDOB 05/19/1992\nRSTRNONE\nSEX: M\nHAIR: BRN\nEYES: BRN\nRGT 5'-09\"\nWGT 125 Lb ...\nISS\nDD 10/30/2011 160221/AAFD/18"
+}

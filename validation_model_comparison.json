@@ -1,0 +1,452 @@
+{
+  "dataset": "katanaml-org/invoices-donut-data-v1",
+  "num_valid_samples": 49,
+  "num_skipped_samples": 1,
+  "base": {
+    "model": "Bennet1996/donut-small",
+    "num_samples": 49,
+    "document_exact_match": 0.0,
+    "document_soft_score": 0.026724584427636266,
+    "field_accuracy": {
+      "invoice_no": 0.0,
+      "invoice_date": 0.0,
+      "seller": 0.0,
+      "client": 0.0,
+      "seller_tax_id": 0.0,
+      "client_tax_id": 0.0,
+      "iban": 0.0,
+      "total_net_worth": 0.0,
+      "total_vat": 0.0,
+      "total_gross_worth": 0.0
+    },
+    "field_similarity": {
+      "invoice_no": 0.014212827988338192,
+      "invoice_date": 0.05442176870748299,
+      "seller": 0.0,
+      "client": 0.0,
+      "seller_tax_id": 0.0,
+      "client_tax_id": 0.0,
+      "iban": 0.0,
+      "total_net_worth": 0.13163023171599492,
+      "total_vat": 0.0,
+      "total_gross_worth": 0.06698101586454654
+    },
+    "examples": [
+      {
+        "index": 0,
+        "ground_truth": {
+          "invoice_no": "65321852",
+          "invoice_date": "04/11/2021",
+          "seller": "Kaufman, Cooper and Young 33451 Johnson Lake New Ann, NE 54138",
+          "client": "Wells-Carlson 148 Carroll Village Suite 393 South Allisonstad, TX 72090",
+          "seller_tax_id": "930-79-7845",
+          "client_tax_id": "957-82-7504",
+          "iban": "GB85XPMM58300597200061",
+          "total_net_worth": "$ 194,76",
+          "total_vat": "$ 19,48",
+          "total_gross_worth": "$ 214,24"
+        },
+        "prediction": {
+          "invoice_no": "70309309",
+          "invoice_date": null,
+          "seller": "Emilier <s_Straße> Kastanienstraße 35 70309309 Stuttgart",
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 3.949,94",
+          "total_vat": null,
+          "total_gross_worth": null
+        },
+        "soft_scores": {
+          "invoice_no": 0.125,
+          "invoice_date": 0.0,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.0,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.0
+        }
+      },
+      {
+        "index": 1,
+        "ground_truth": {
+          "invoice_no": "16220332",
+          "invoice_date": "05/15/2017",
+          "seller": "Lawson and Sons 78147 Jackson Fords Gilesland, MI 45057",
+          "client": "Mosley LLC 913 Lawrence Mountains New Andrew, KY 46723",
+          "seller_tax_id": "995-72-1473",
+          "client_tax_id": "988-78-0364",
+          "iban": "GB30RUVA78076817247388",
+          "total_net_worth": "$62853,39",
+          "total_vat": "$6285,34",
+          "total_gross_worth": "$ 69138,73"
+        },
+        "prediction": {
+          "invoice_no": "308142",
+          "invoice_date": "05/07/1937",
+          "seller": "Lennar Lange </s_Name> <s_Gesetzl. Netto> 8.637 308142 </s_Straße> <s_Stadt> 30849",
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 8.978,93",
+          "total_vat": null,
+          "total_gross_worth": null
+        },
+        "soft_scores": {
+          "invoice_no": 0.2857142857142857,
+          "invoice_date": 0.3333333333333333,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.1428551427377266,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.0
+        }
+      },
+      {
+        "index": 2,
+        "ground_truth": {
+          "invoice_no": "90446683",
+          "invoice_date": "02/11/2016",
+          "seller": "Chang-Cooper 452 Miller Plains Apt. 418 Barrettside, UT 97139",
+          "client": "Peterson-Long 92441 Kimberly Curve East Mathew, OH 84858",
+          "seller_tax_id": "911-96-2770",
+          "client_tax_id": "911-96-7248",
+          "iban": "GB19LAZW37358375097586",
+          "total_net_worth": "$ 196,97",
+          "total_vat": "$19,70",
+          "total_gross_worth": "$ 216,67"
+        },
+        "prediction": {
+          "invoice_no": null,
+          "invoice_date": null,
+          "seller": "<s_Straße> Gewerbe </s_Name> <s_Gesetzl. Netto> 8.126,47",
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 8.126,47",
+          "total_vat": null,
+          "total_gross_worth": "$ 30696,97"
+        },
+        "soft_scores": {
+          "invoice_no": 0.0,
+          "invoice_date": 0.0,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.0,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.0
+        }
+      }
+    ]
+  },
+  "full": {
+    "model": "E:\\thesis\\outputs\\Bennet1996_donut-small_ft_best",
+    "num_samples": 49,
+    "document_exact_match": 0.0,
+    "document_soft_score": 0.9181238472849542,
+    "field_accuracy": {
+      "invoice_no": 1.0,
+      "invoice_date": 1.0,
+      "seller": 0.0,
+      "client": 0.0,
+      "seller_tax_id": 0.9591836734693877,
+      "client_tax_id": 1.0,
+      "iban": 0.3877551020408163,
+      "total_net_worth": 0.9183673469387755,
+      "total_vat": 0.9183673469387755,
+      "total_gross_worth": 0.8571428571428571
+    },
+    "field_similarity": {
+      "invoice_no": 1.0,
+      "invoice_date": 1.0,
+      "seller": 0.6273209561563668,
+      "client": 0.6714559179225366,
+      "seller_tax_id": 0.9954648526077097,
+      "client_tax_id": 1.0,
+      "iban": 0.9555162219894239,
+      "total_net_worth": 0.9913297837227578,
+      "total_vat": 0.9587098690025291,
+      "total_gross_worth": 0.9814408714482161
+    },
+    "examples": [
+      {
+        "index": 0,
+        "ground_truth": {
+          "invoice_no": "65321852",
+          "invoice_date": "04/11/2021",
+          "seller": "Kaufman, Cooper and Young 33451 Johnson Lake New Ann, NE 54138",
+          "client": "Wells-Carlson 148 Carroll Village Suite 393 South Allisonstad, TX 72090",
+          "seller_tax_id": "930-79-7845",
+          "client_tax_id": "957-82-7504",
+          "iban": "GB85XPMM58300597200061",
+          "total_net_worth": "$ 194,76",
+          "total_vat": "$ 19,48",
+          "total_gross_worth": "$ 214,24"
+        },
+        "prediction": {
+          "invoice_no": "65321852",
+          "invoice_date": "04/11/2021",
+          "seller": "Kaufman, Cooper and Young PSC 663, Box 7458 New Apt. ME 54138",
+          "client": "Wells-Carlson Plaza Suite 393 South Allisonstad, TX 72090",
+          "seller_tax_id": "930-79-7845",
+          "client_tax_id": "957-82-7504",
+          "iban": "GB85XPMM58300597200061",
+          "total_net_worth": "$ 194,76",
+          "total_vat": "$ 19,48",
+          "total_gross_worth": "$ 214,24"
+        },
+        "soft_scores": {
+          "invoice_no": 1.0,
+          "invoice_date": 1.0,
+          "seller": 0.5217391304347826,
+          "client": 0.7777777777777778,
+          "seller_tax_id": 1.0,
+          "client_tax_id": 1.0,
+          "iban": 1.0,
+          "total_net_worth": 1.0,
+          "total_vat": 1.0,
+          "total_gross_worth": 1.0
+        }
+      },
+      {
+        "index": 1,
+        "ground_truth": {
+          "invoice_no": "16220332",
+          "invoice_date": "05/15/2017",
+          "seller": "Lawson and Sons 78147 Jackson Fords Gilesland, MI 45057",
+          "client": "Mosley LLC 913 Lawrence Mountains New Andrew, KY 46723",
+          "seller_tax_id": "995-72-1473",
+          "client_tax_id": "988-78-0364",
+          "iban": "GB30RUVA78076817247388",
+          "total_net_worth": "$62853,39",
+          "total_vat": "$6285,34",
+          "total_gross_worth": "$ 69138,73"
+        },
+        "prediction": {
+          "invoice_no": "16220332",
+          "invoice_date": "05/15/2017",
+          "seller": "Lawson and Sons 747 David Shores Gilesland, MI 45057",
+          "client": "Mosley LLC 868 Garcia Mountains New Andrew, KY 46723",
+          "seller_tax_id": "995-72-1473",
+          "client_tax_id": "988-78-0364",
+          "iban": "GB30RUVA78076817247388",
+          "total_net_worth": "$62 853,39",
+          "total_vat": "$6285,34",
+          "total_gross_worth": "$69 138,73"
+        },
+        "soft_scores": {
+          "invoice_no": 1.0,
+          "invoice_date": 1.0,
+          "seller": 0.6666666666666666,
+          "client": 0.7777777777777778,
+          "seller_tax_id": 1.0,
+          "client_tax_id": 1.0,
+          "iban": 1.0,
+          "total_net_worth": 1.0,
+          "total_vat": 1.0,
+          "total_gross_worth": 1.0
+        }
+      },
+      {
+        "index": 2,
+        "ground_truth": {
+          "invoice_no": "90446683",
+          "invoice_date": "02/11/2016",
+          "seller": "Chang-Cooper 452 Miller Plains Apt. 418 Barrettside, UT 97139",
+          "client": "Peterson-Long 92441 Kimberly Curve East Mathew, OH 84858",
+          "seller_tax_id": "911-96-2770",
+          "client_tax_id": "911-96-7248",
+          "iban": "GB19LAZW37358375097586",
+          "total_net_worth": "$ 196,97",
+          "total_vat": "$19,70",
+          "total_gross_worth": "$ 216,67"
+        },
+        "prediction": {
+          "invoice_no": "90446683",
+          "invoice_date": "02/11/2016",
+          "seller": "Chang-Copper 858 Garrettside, UT 97139",
+          "client": "Peterson-Long Unit 947 Mary Curve East Mathew, OH 84858",
+          "seller_tax_id": "911-96-2770",
+          "client_tax_id": "911-96-7248",
+          "iban": "GB19LAZW37358375097586",
+          "total_net_worth": "$ 196,97",
+          "total_vat": "$ 19,70",
+          "total_gross_worth": "$ 216,67"
+        },
+        "soft_scores": {
+          "invoice_no": 1.0,
+          "invoice_date": 1.0,
+          "seller": 0.2857142857142857,
+          "client": 0.7058823529411765,
+          "seller_tax_id": 1.0,
+          "client_tax_id": 1.0,
+          "iban": 1.0,
+          "total_net_worth": 1.0,
+          "total_vat": 1.0,
+          "total_gross_worth": 1.0
+        }
+      }
+    ]
+  },
+  "dora": {
+    "model": "E:\\thesis\\outputs\\Bennet1996_donut-small_dora_best",
+    "num_samples": 49,
+    "document_exact_match": 0.0,
+    "document_soft_score": 0.04411428026781455,
+    "field_accuracy": {
+      "invoice_no": 0.0,
+      "invoice_date": 0.061224489795918366,
+      "seller": 0.0,
+      "client": 0.0,
+      "seller_tax_id": 0.0,
+      "client_tax_id": 0.0,
+      "iban": 0.0,
+      "total_net_worth": 0.0,
+      "total_vat": 0.0,
+      "total_gross_worth": 0.0
+    },
+    "field_similarity": {
+      "invoice_no": 0.011661807580174927,
+      "invoice_date": 0.12244897959183672,
+      "seller": 0.0027210884353741495,
+      "client": 0.0,
+      "seller_tax_id": 0.0,
+      "client_tax_id": 0.0,
+      "iban": 0.0,
+      "total_net_worth": 0.1749944037127527,
+      "total_vat": 0.0,
+      "total_gross_worth": 0.12931652335800695
+    },
+    "examples": [
+      {
+        "index": 0,
+        "ground_truth": {
+          "invoice_no": "65321852",
+          "invoice_date": "04/11/2021",
+          "seller": "Kaufman, Cooper and Young 33451 Johnson Lake New Ann, NE 54138",
+          "client": "Wells-Carlson 148 Carroll Village Suite 393 South Allisonstad, TX 72090",
+          "seller_tax_id": "930-79-7845",
+          "client_tax_id": "957-82-7504",
+          "iban": "GB85XPMM58300597200061",
+          "total_net_worth": "$ 194,76",
+          "total_vat": "$ 19,48",
+          "total_gross_worth": "$ 214,24"
+        },
+        "prediction": {
+          "invoice_no": null,
+          "invoice_date": "09/07/1974",
+          "seller": "Schulzer </s_Name> <s_Gesetzl. Netto> 4.313,95 </s_Gesetzl. Netto> <s_Gesamtbrutto> 04/11/20 21",
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 4.313,95",
+          "total_vat": null,
+          "total_gross_worth": "$ 309,49"
+        },
+        "soft_scores": {
+          "invoice_no": 0.0,
+          "invoice_date": 0.0,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.0,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.5554051530993278
+        }
+      },
+      {
+        "index": 1,
+        "ground_truth": {
+          "invoice_no": "16220332",
+          "invoice_date": "05/15/2017",
+          "seller": "Lawson and Sons 78147 Jackson Fords Gilesland, MI 45057",
+          "client": "Mosley LLC 913 Lawrence Mountains New Andrew, KY 46723",
+          "seller_tax_id": "995-72-1473",
+          "client_tax_id": "988-78-0364",
+          "iban": "GB30RUVA78076817247388",
+          "total_net_worth": "$62853,39",
+          "total_vat": "$6285,34",
+          "total_gross_worth": "$ 69138,73"
+        },
+        "prediction": {
+          "invoice_no": null,
+          "invoice_date": "09/03/2005",
+          "seller": "Levinstein Langeronhagen <s_Straße> Langeron Bergstraße 59 2014-2020",
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 8.978,39",
+          "total_vat": null,
+          "total_gross_worth": null
+        },
+        "soft_scores": {
+          "invoice_no": 0.0,
+          "invoice_date": 0.0,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.1428465513156888,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.0
+        }
+      },
+      {
+        "index": 2,
+        "ground_truth": {
+          "invoice_no": "90446683",
+          "invoice_date": "02/11/2016",
+          "seller": "Chang-Cooper 452 Miller Plains Apt. 418 Barrettside, UT 97139",
+          "client": "Peterson-Long 92441 Kimberly Curve East Mathew, OH 84858",
+          "seller_tax_id": "911-96-2770",
+          "client_tax_id": "911-96-7248",
+          "iban": "GB19LAZW37358375097586",
+          "total_net_worth": "$ 196,97",
+          "total_vat": "$19,70",
+          "total_gross_worth": "$ 216,67"
+        },
+        "prediction": {
+          "invoice_no": null,
+          "invoice_date": "09/01/1926",
+          "seller": null,
+          "client": null,
+          "seller_tax_id": null,
+          "client_tax_id": null,
+          "iban": null,
+          "total_net_worth": "$ 9.126,67",
+          "total_vat": null,
+          "total_gross_worth": "$ 10.707,70"
+        },
+        "soft_scores": {
+          "invoice_no": 0.0,
+          "invoice_date": 0.0,
+          "seller": 0.0,
+          "client": 0.0,
+          "seller_tax_id": 0.0,
+          "client_tax_id": 0.0,
+          "iban": 0.0,
+          "total_net_worth": 0.0,
+          "total_vat": 0.0,
+          "total_gross_worth": 0.0
+        }
+      }
+    ]
+  }
+}

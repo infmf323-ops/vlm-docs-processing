@@ -1,0 +1,80 @@
+{
+  "dataset_size": 1,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.9,
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1_score": 0.9
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "samples": [
+    {
+      "id": "passport_michelle_obama",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "910239248",
+        "surname": "OBAMA",
+        "given_names": "MICHELLE",
+        "nationality": "UNITED STATES OF AMERICA",
+        "date_of_birth": "17 Jan 1964",
+        "sex": "F",
+        "place_of_birth": "ILLINOIS, U.S.A.",
+        "date_of_issue": "06 Dec 2013",
+        "date_of_expiry": "05 Dec 2018",
+        "issuing_authority": "United States Department of State"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport | Passport",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": "910239248",
+          "surname": "OBAMA",
+          "given_names": "MICHELLE",
+          "nationality": "UNITED STATES OF AMERICA",
+          "date_of_birth": "17 Jan 1964",
+          "sex": null,
+          "place_of_birth": "ILLINOIS, U.S.A.",
+          "date_of_issue": "06 Dec 2013",
+          "date_of_expiry": "05 Dec 2018",
+          "issuing_authority": "United States Department of State",
+          "mrz": "05 Dec 2018\nEndorsements / Mentions Speciales / Anctaciones\nSEE PAGE 51\nUSA\nP<USAOBAMA<<MICHELLE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+        },
+        "raw": {
+          "generated_text": "P\n\n910239248\n\nSignature of Bearer / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\n\nUnited States of America\n\nType / Type / Tip / Code / Code / Citation / Passport No. / No. du Passeport / No. de Pasport\n\nUSA\n\n910239248\n\nBAMA\n\nGiven Names / Prenoms / Monbrés\n\nMICHELLE\n\nNationality / Nationalité / Nationalité\n\nUNITED STATES OF AMERICA\n\nDate of birth / Date of reasmance / Fecha de traducción\n\n17 Jan 1964\n\nPlano / Plano / Lieu de naissance / Lugar de nacimiento\n\nILINIOIS, U.S.A.\n\nDate of isus / Date of de l'émission / Fecha de expedición\n\n06 Dec 2013\n\n05 Dec 2018\n\nEndérecamente / Mentione Speciales / Anciones\n\nSEE PAGE 51\n\nP",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {},
+        "raw": {
+          "generated_text": "Passport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |  \nPassport |",
+          "parsed_json": null
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:/thesis/data/multidoc/pilot_train.jsonl"
+  ],
+  "adapter_dir": "E:/thesis/outputs/paddleocr_vl_multidoc_lora_pilot"
+}

@@ -1,0 +1,160 @@
+{
+  "dataset_size": 2,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.4375,
+      "precision": 0.4375,
+      "recall": 0.4375,
+      "f1_score": 0.4375
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.375,
+      "precision": 0.375,
+      "recall": 0.375,
+      "f1_score": 0.375
+    }
+  },
+  "samples": [
+    {
+      "id": "synthetic-usa-driver-license_000",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": [
+          "C"
+        ]
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "05191992",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": null,
+          "surname": null,
+          "given_names": null,
+          "date_of_birth": "04/17/2018",
+          "place_of_birth": null,
+          "address": null,
+          "date_of_issue": "10/30/2116",
+          "date_of_expiry": "01/16/2014",
+          "issuing_authority": null,
+          "categories": []
+        },
+        "raw": {
+          "generated_text": "05191992",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "date_of_birth": "04/17/2018",
+          "date_of_issue": "10/30/2116",
+          "date_of_expiry": "01/16/2014",
+          "categories": "[]"
+        },
+        "raw": {
+          "generated_text": "The provided image contains a chart with data points (data from the \"Driver License\" table). No specific numerical data to extract, but the chart's labels and numbers are present in the image. Therefore, it is impossible to extract any specific data points from the image to create a table as requested.",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true
+        }
+      }
+    },
+    {
+      "id": "synthetic-usa-driver-license_002",
+      "document_type": "driver_license",
+      "expected_fields": {
+        "license_number": "18951467",
+        "surname": "DAVIS",
+        "given_names": "MICHAEL",
+        "date_of_birth": "05/19/1992",
+        "place_of_birth": null,
+        "address": "3524 BREMEN DRIVE",
+        "date_of_issue": "01/16/2014",
+        "date_of_expiry": "04/17/2018",
+        "issuing_authority": null,
+        "categories": [
+          "C"
+        ]
+      },
+      "out_of_the_box": {
+        "fields": {
+          "LDL": "{'EXP_04/17/2018': {}}"
+        },
+        "raw": {
+          "generated_text": "{\n  \"LDL\": {\n    \"EXP_04/17/2018\": {text: \"CLASS C\",}\n    {END_NONE\": {}}\n  }\n}",
+          "parsed_json": {
+            "LDL": {
+              "EXP_04/17/2018": {}
+            }
+          }
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "license_number": "18951467",
+          "surname": "DAVIS",
+          "given_names": "MICHAEL",
+          "date_of_birth": "05/19/1992",
+          "place_of_birth": null,
+          "address": "3524 BREMEN DRIVE",
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "04/17/2018",
+          "issuing_authority": null,
+          "categories": [
+            "C"
+          ]
+        },
+        "raw": {
+          "generated_text": "18951467\nEXP 04/17/2018\nEND NONE\nLN DAVIS\nFN MICHAEL\n3524 BREMEN DRIVE\nSACRAMENTO, CA 95821\nDOB 05/19/181992\nRSTRONE\nSEX M\nHAIR BRN\nEYES BRN",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "driver_license"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "license_number": "18951467",
+          "surname": "DAVIS",
+          "date_of_birth": "05/19/1992",
+          "date_of_issue": "10/30/2011",
+          "date_of_expiry": "04/17/2018",
+          "categories": "['C']",
+          "given_names": "MICHAEL",
+          "address": "3524 BREMEN DRIVE"
+        },
+        "raw": {
+          "generated_text": "{\n  \"Citation\": \"18951467\",\n  text: \"EXP 04/17/2018 END NONE\"\n}",
+          "parsed_json": {
+            "Citation": "18951467"
+          },
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:\\thesis\\data\\multidoc\\driver_license_eval_diverse_v1.jsonl"
+  ],
+  "adapter_dir": "E:\\thesis\\outputs\\paddleocr_vl_driver_license_curriculum_v1"
+}

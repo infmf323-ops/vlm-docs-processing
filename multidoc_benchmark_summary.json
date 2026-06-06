@@ -1,0 +1,57 @@
+{
+  "benchmarks": {
+    "passport": {
+      "dataset_size": 1,
+      "metrics": {
+        "out_of_the_box": {
+          "field_accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        },
+        "heuristic_pipeline": {
+          "field_accuracy": 0.9,
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1_score": 0.9
+        },
+        "fine_tuned_lora": {
+          "field_accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        }
+      },
+      "sample_id": "passport_michelle_obama"
+    },
+    "invoice": {
+      "dataset_size": 1,
+      "metrics": {
+        "out_of_the_box": {
+          "field_accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        },
+        "heuristic_pipeline": {
+          "field_accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        },
+        "fine_tuned_lora": {
+          "field_accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        }
+      },
+      "sample_id": "invoice_val_1"
+    }
+  },
+  "artifacts": {
+    "passport_benchmark": "E:/thesis/multidoc_benchmark_passport.json",
+    "invoice_benchmark": "E:/thesis/multidoc_benchmark_invoice_fast.json",
+    "lora_training_summary": "E:/thesis/outputs/paddleocr_vl_multidoc_lora_pilot/training_summary.json"
+  }
+}

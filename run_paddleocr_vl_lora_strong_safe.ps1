@@ -1,0 +1,22 @@
+$ErrorActionPreference = "Stop"
+
+$env:HF_HOME = "E:\thesis\.hf-cache"
+$env:HUGGINGFACE_HUB_CACHE = "E:\thesis\.hf-cache\hub"
+$env:HF_HUB_CACHE = "E:\thesis\.hf-cache\hub"
+$env:TRANSFORMERS_CACHE = "E:\thesis\.hf-cache\transformers"
+$env:PYTORCH_CUDA_ALLOC_CONF = "max_split_size_mb:128"
+
+$env:NUM_EPOCHS = "1"
+$env:BATCH_SIZE = "1"
+$env:GRADIENT_ACCUMULATION_STEPS = "1"
+$env:LEARNING_RATE = "2e-4"
+$env:WEIGHT_DECAY = "0.01"
+$env:WARMUP_RATIO = "0.1"
+$env:MAX_IMAGE_SIDE = "640"
+$env:MAX_LENGTH = "1536"
+$env:MAX_NEW_TOKENS = "192"
+$env:MULTIDOC_TRAIN_FILE = "E:\thesis\data\multidoc\pilot_train_strong.jsonl"
+$env:MULTIDOC_VAL_FILE = "E:\thesis\data\multidoc\pilot_val.jsonl"
+$env:OUTPUT_DIR = "E:\thesis\outputs\paddleocr_vl_multidoc_lora_strong_safe"
+
+& "E:\thesis\.conda311\python.exe" "E:\thesis\backend\scripts\train_paddleocr_vl_lora.py"

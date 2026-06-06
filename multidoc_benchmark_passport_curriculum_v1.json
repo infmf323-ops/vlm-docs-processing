@@ -1,0 +1,334 @@
+{
+  "dataset_size": 5,
+  "metrics": {
+    "out_of_the_box": {
+      "field_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "heuristic_pipeline": {
+      "field_accuracy": 0.35437229437229434,
+      "precision": 0.4095238095238095,
+      "recall": 0.35437229437229434,
+      "f1_score": 0.3723015873015873
+    },
+    "fine_tuned_lora": {
+      "field_accuracy": 0.421038961038961,
+      "precision": 0.4095238095238095,
+      "recall": 0.421038961038961,
+      "f1_score": 0.4078571428571429
+    }
+  },
+  "samples": [
+    {
+      "id": "passport_michelle_obama",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "910239248",
+        "surname": "OBAMA",
+        "given_names": "MICHELLE",
+        "nationality": "UNITED STATES OF AMERICA",
+        "date_of_birth": "17 Jan 1964",
+        "sex": "F",
+        "place_of_birth": "ILLINOIS, U.S.A.",
+        "date_of_issue": "06 Dec 2013",
+        "date_of_expiry": "05 Dec 2018",
+        "issuing_authority": "United States Department of State"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P | USA\n910239248\nSignature of Bearer / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\nSIGNATURE OF BEARER / SIGNATURE DU TITULAIRE / FIRMA DELTITULAR",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": "910239248",
+          "surname": "OBAMA",
+          "given_names": "MICHELLE",
+          "nationality": "UNITED STATES OF AMERICA",
+          "date_of_birth": "17 Jan 1964",
+          "sex": null,
+          "place_of_birth": "ILLINOIS, U.S.A.",
+          "date_of_issue": "06 Dec 2013",
+          "date_of_expiry": "06 Dec 2013",
+          "issuing_authority": "United States Department of State",
+          "mrz": "05 Dec 2018\nEndorsements / Mentions Speciales / Anctaciones\nSEE PAGE 51\nUSA\nP<USAOBAMA<<MICHELLE<<<<<<<<<<<<<><><><<><<9102392482USA6401171F181205190078100<129676"
+        },
+        "raw": {
+          "generated_text": "P\n910239248\nSignature of Bearer / SIGNATURE DU TITULAIRE / FIRMA DEL TITULAR\nUnited States of America\nType / Type / Tip.\nCafe Code Cafecio\nPassport No. (for du Passeport) / No. de Pasporte\nUSA\nSurname / Norn / Apenilcos\nOBAMA\nGiven Names / Prenons / Monres\nMICHELLE\nNationality / Nationalité / Nacionalidad\nUNITED STATES OF AMERICA\nDate of birth / Date de résistance / Fecha de traducción\n17 Jan 1964\nPlano / Plano / Lleu de naissance / Lugue de nacimiento\nILINIOIS, U.S.A.\nDate / Içusas / Date / déliverance / Fecha de expedición\n06 Dec 2013\nDate d'expiration / Date d'exploitation / Fech d'accident / Dernal d'équivie / Fiché d'acquisition / Fiche d'arrêts / Fachs / Fidés",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "surname": "OBAMA",
+          "given_names": "MICHELLE",
+          "issuing_authority": "United States Department of State",
+          "mrz": "05 Dec 2018\nEndorsements / Mentions Speciales / Anctaciones\nSEE PAGE 51\nUSA\nP<USAOBAMA<<MICHELLE<<<<<<<<<<<<<><><><<><<9102392482USA6401171F181205190078100<129676",
+          "document_number": "910239248",
+          "nationality": "UNITED STATES OF AMERICA",
+          "date_of_birth": "17 Jan 1964",
+          "place_of_birth": "ILLINOIS, U.S.A.",
+          "date_of_issue": "06 Dec 2013",
+          "date_of_expiry": "06 Dec 2013"
+        },
+        "raw": {
+          "generated_text": "P<USAOBAMA><MICHELLE>",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    },
+    {
+      "id": "passport-dataset_000",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": null,
+        "surname": "AL FARSI",
+        "given_names": "AHMAD AL",
+        "nationality": "ARE",
+        "date_of_birth": null,
+        "sex": "M",
+        "place_of_birth": null,
+        "date_of_issue": "10/02/2015",
+        "date_of_expiry": null,
+        "issuing_authority": "????? ??? ???? ????? ??? ????? ??????? 10/02/2015 ????? ???? ?????? nature",
+        "mrz": "P<FARSI<<AHMAD<AL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": "AL FARSI",
+          "given_names": "AHMAD AL",
+          "nationality": "ARE",
+          "date_of_birth": null,
+          "sex": "M",
+          "place_of_birth": null,
+          "date_of_issue": "10/02/2015",
+          "date_of_expiry": null,
+          "issuing_authority": "الجنس ذكر مكان السبك دبي تاريخ الاصدار 10/02/2015 توقيع حامل الجواب nature",
+          "mrz": "P<FARSI<<AHMAD<AL<(\""
+        },
+        "raw": {
+          "generated_text": "United Arab Emirates",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "surname": "AL FARSI",
+          "given_names": "AHMAD AL",
+          "sex": "M",
+          "date_of_issue": "10/02/2015",
+          "issuing_authority": "الجنس ذكر مكان السبك دبي تاريخ الاصدار 10/02/2015 توقيع حامل الجواب nature",
+          "mrz": "P<FARSI<<AHMAD<AL<(\"",
+          "nationality": "ARE"
+        },
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    },
+    {
+      "id": "passport-dataset_002",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "254R76423",
+        "surname": null,
+        "given_names": null,
+        "nationality": "ARE",
+        "date_of_birth": "24/11/1989",
+        "sex": "F",
+        "place_of_birth": null,
+        "date_of_issue": null,
+        "date_of_expiry": "16/06/2018",
+        "issuing_authority": "<<",
+        "mrz": null
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "P",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": "AL MANSOURI",
+          "given_names": "LAYLA",
+          "nationality": null,
+          "date_of_birth": null,
+          "sex": null,
+          "place_of_birth": null,
+          "date_of_issue": null,
+          "date_of_expiry": null,
+          "issuing_authority": "<<",
+          "mrz": null
+        },
+        "raw": {
+          "generated_text": "P",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "document_number": "C254R7642",
+          "surname": "SOURI LAYLA AL LC LC",
+          "given_names": "LAYLA",
+          "nationality": "ARE",
+          "date_of_birth": "98.11.2024",
+          "sex": "F",
+          "date_of_expiry": "20.06.2016",
+          "issuing_authority": "<<",
+          "mrz": "P<MANSOURI><LAYLA<AL<LC<LC>254R76423ARE2411989F16062018"
+        },
+        "raw": {
+          "generated_text": "P<MANSOURI><LAYLA<AL<LC<LC>254R76423ARE2411989F16062018",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true
+        }
+      }
+    },
+    {
+      "id": "ud-synthetic__synthetic-russian-passports_001_eval",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "77 7236981",
+        "surname": "SOKOLOVA",
+        "given_names": "TATYANA ALEKSEEVNA",
+        "nationality": "RUSSIAN FEDERATION",
+        "date_of_birth": "09.09.1987",
+        "sex": "F",
+        "place_of_birth": "ASTRAKHAN / USSR",
+        "date_of_issue": "27.12.2020",
+        "date_of_expiry": "27.12.2030",
+        "issuing_authority": "??? 16002",
+        "mrz": "P<RUSSOKOLOVA<<TATYANA<<<<<<<<<<<<<<<<<<<<<\n77<7236985RUS8709099F3012279<<<<<<<<<<00"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "The document is written in English, and the text is in English. No special化名 or other specialised form.\nP<russko-kolova><tatyanana><ctedarish>77<236985rUS8709099F3012279<ctedaria-russianfederation>7",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": "SOKOLOVA",
+          "given_names": "TATYANAC RUSF",
+          "nationality": null,
+          "date_of_birth": "09.09,1987",
+          "sex": null,
+          "place_of_birth": null,
+          "date_of_issue": null,
+          "date_of_expiry": null,
+          "issuing_authority": "02",
+          "mrz": "27.12.2030 T.Cokonoba\nP<russoKolova<<tatyanac班级：___ 77<7236985rus8709099f3012279班级：班级：00"
+        },
+        "raw": {
+          "generated_text": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / RUSSIAN FEDERATION\nПАСПОРТ / PASSPORT\nTwin / Type\nКаз. государства / Code of\nРУСТУМ / Supply State\nМерь надзотта / Passport No.\n77 7236981\nСОКОЛОВА / SOKOLOVA\nМиг / Given names\nТАТЬЯНА АЛЕКСЕЕВНА / TATYANA\nГафедер / Gafedder\nРОСТСИЮСКАя Федерация / ROSTAN FÉDERATION (Чистия записки)\nДата рождения / Date of birth\n09.09,1987\nМесто рождении Place of birth / Mecha place of birth (Российская ДӀобратель/Mecha Place of Birth)\nX/F / Sex\nГ. Астрахань / USSR\nЛаги внимания / Date",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "surname": "SOKOLOVA",
+          "given_names": "TATYANAC RUSF",
+          "issuing_authority": "02",
+          "mrz": "27.12.2030 T.Cokonoba\nP<russoKolova<<tatyanac班级：___ 77<7236985rus8709099f3012279班级：班级：00",
+          "date_of_birth": "09.09,1987"
+        },
+        "raw": {
+          "generated_text": "P<russko-kolova><tatyanana><ctao/ruzbaiskova>",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true,
+          "merged_with_heuristic": true
+        }
+      }
+    },
+    {
+      "id": "ud-synthetic__synthetic-french-passports_002_eval",
+      "document_type": "passport",
+      "expected_fields": {
+        "document_number": "VJ1003552",
+        "surname": "MARTINEZ",
+        "given_names": "BERNARD SYLVAIN",
+        "nationality": "FRAN?AISE",
+        "date_of_birth": "22.02.1992",
+        "sex": "M",
+        "place_of_birth": "MARSEILLE",
+        "date_of_issue": "15.06.2020",
+        "date_of_expiry": "15.06.2030",
+        "issuing_authority": "PR?FECTURE DE SEINE-MARITIME",
+        "mrz": "P<FRAMARTINEZ<<RICK<<<<<<<<<<<<<<<<<<<<<<<\nVJ10035520FRA9202221M3006151<<<<<<<<<<06"
+      },
+      "out_of_the_box": {
+        "fields": {},
+        "raw": {
+          "generated_text": "The provided image contains a chart with data that is not present in the source image, so it cannot be converted into a markdown table.",
+          "parsed_json": null
+        }
+      },
+      "heuristic_pipeline": {
+        "fields": {
+          "document_number": null,
+          "surname": null,
+          "given_names": null,
+          "nationality": null,
+          "date_of_birth": null,
+          "sex": null,
+          "place_of_birth": null,
+          "date_of_issue": null,
+          "date_of_expiry": null,
+          "issuing_authority": "a",
+          "mrz": "O"
+        },
+        "raw": {
+          "generated_text": "Unidata",
+          "prompt": "OCR:",
+          "engine": "paddleocr_vl",
+          "requested_document_type": "passport"
+        }
+      },
+      "fine_tuned_lora": {
+        "fields": {
+          "issuing_authority": "a",
+          "mrz": "O"
+        },
+        "raw": {
+          "generated_text": "The provided data is a table of documents, not an API response. It does not contain any data that can be extracted into a markdown table. Therefore, it is not possible to create a data table as requested.",
+          "parsed_json": null,
+          "salvaged_from_generated_text": true
+        }
+      }
+    }
+  ],
+  "datasets": [
+    "E:\\thesis\\data\\multidoc\\passport_eval_diverse_v1.jsonl"
+  ],
+  "adapter_dir": "E:\\thesis\\outputs\\paddleocr_vl_passport_curriculum_v1"
+}
